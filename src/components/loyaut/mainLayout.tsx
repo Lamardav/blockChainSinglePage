@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { rem } from "../../assets/theme/rem";
+import { theme } from "../../assets/theme/theme";
+import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
 
 type Props = {
@@ -14,7 +16,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
             <Main>
                 <Content>{ children }</Content>
             </Main>
-            { /*<Footer/>*/ }
+            <Footer/>
         </>
     );
 };
@@ -36,4 +38,8 @@ const Content = styled.div`
   grid-auto-rows: auto;
   padding: ${rem("32px")} ${rem("112px")} 0;
   grid-column-gap: ${rem("32px")};
+    @media screen and (max-width: ${theme.rubberSize.tablet}) {
+      grid-template-columns: 1fr;
+      grid-row-gap: ${rem("8px")};
+    }
 `;

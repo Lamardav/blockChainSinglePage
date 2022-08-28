@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { rem } from "../../assets/theme/rem";
 import { theme } from "../../assets/theme/theme";
 
 interface IProps {
@@ -9,8 +10,11 @@ interface IProps {
 
 
 export const Hamburger = ({ checked, onClick }: IProps) => {
+
     return (
-        <HamburgerContainer checked={ checked } onClick={ () => onClick?.() }>
+        <HamburgerContainer checked={ checked } onClick={ (e) => {
+            onClick?.();
+        } }>
             <Line/>
             <Line/>
             <Line/>
@@ -20,13 +24,13 @@ export const Hamburger = ({ checked, onClick }: IProps) => {
 
 
 const HamburgerContainer = styled.div<{ checked: boolean }>`
-  height: 26px;
-  width: 32px;
+  height:  ${rem("17px")};
+  width: ${rem("21px")};
   position: absolute;
   display: none;
-  top: 17px;
-  left: 20px;
-  z-index: 2;
+  top: ${rem("22px")};
+  left: ${rem("16px")};
+  z-index: 9999;
   flex-direction: column;
   justify-content: space-between;
   ${({ checked }) => {

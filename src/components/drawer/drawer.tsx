@@ -20,9 +20,6 @@ export const Drawer: FC<IProps> = ({ onClose, opened, children }) => {
     });
     
     useEffect(() => document.body.style.setProperty("overflow", opened ? "hidden" : "initial"), [opened]);
-    useEffect(() => {
-        return () => onClose();
-    }, [onClose]);
 
     return (
         <>
@@ -112,4 +109,7 @@ const Content = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-row-gap: ${rem("14px")};
 `;

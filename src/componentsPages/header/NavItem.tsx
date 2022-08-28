@@ -32,5 +32,13 @@ const MenuItem = styled.p<{ isActive: boolean }>`
   &:hover{
     background: ${theme.colors.blue};
   }
+    @media screen and (max-width: ${theme.rubberSize.desktop}) {
+      font-size: ${rem("13px")};
+      padding: ${rem("4px")};
+    }
+    @media screen and (max-width: ${theme.rubberSize.laptop}) {
+      font-size: ${rem("12px")};
+      padding: ${rem("3px")};
+      }
 `;
 
