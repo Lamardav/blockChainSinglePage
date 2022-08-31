@@ -26,6 +26,9 @@ const Main = styled.main`
   justify-content: center;
   height: fit-content;
   min-height: 100%;
+  background: ${theme.colors.backgroundDark};
+  width: 100%;
+;
 `;
 
 const Content = styled.div`
@@ -36,8 +39,9 @@ const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: auto;
-  padding: ${rem("32px")} ${rem("112px")} 0;
+  padding: ${rem("40px")} ${rem("25px")} ;
   grid-column-gap: ${rem("32px")};
+  
     @media screen and (max-width: ${theme.rubberSize.tablet}) {
       grid-template-columns: 1fr;
       grid-row-gap: ${rem("8px")};

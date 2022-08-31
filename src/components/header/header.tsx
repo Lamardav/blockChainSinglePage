@@ -44,6 +44,8 @@ const Container = styled.header`
   box-shadow: 0 4px 14px rgb(0 0 0 / 6%);
   width: 100%;
   padding: 0 ${rem("25px")};
+  z-index: 99;
+  
     @media screen and (max-width: ${theme.rubberSize.tablet}) {
       padding: ${rem("4px")} 0;
     }

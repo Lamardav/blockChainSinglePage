@@ -10,6 +10,8 @@ export const theme = {
         blue: "#4177de",
         gainsBoro:"#e0e0e0",
         spaceShuttle:"#48423b",
-        white:"#ffffff"
+        white:"#ffffff",
+        lightBlue: "#4169e0",
+        heavyBlue:"#00004d"
     }
 };
