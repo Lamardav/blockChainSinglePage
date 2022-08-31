@@ -50,6 +50,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   grid-column-gap: ${rem("10px")};
+    @media screen and (max-width: ${theme.rubberSize.laptop}) {
+      grid-column-gap: ${rem("8px")};
+      align-items: baseline;
+    }
 `;
 
 const CheckBoxBlock = styled.label<{ checked?: boolean }>`
@@ -89,6 +93,10 @@ const CheckBoxBlock = styled.label<{ checked?: boolean }>`
     height: ${rem("20px")};
     fill: ${({ checked }) => (checked ? theme.colors.blue : "transparent")};
     stroke: ${({ checked }) => (!checked ? theme.colors.heavyBlue : theme.colors.blue)};
+      @media screen and (max-width: ${theme.rubberSize.laptop}) {
+        width: ${rem("15px")};
+        height: ${rem("15px")};
+        }
   }
 `;
 
@@ -96,4 +104,12 @@ const Label = styled.span`
   margin: 0;
   font-size: ${rem("14px")};
   line-height: ${rem("20px")};
+    @media screen and (max-width: ${theme.rubberSize.desktop}) {
+      font-size: ${rem("13px")};
+      line-height: ${rem("18px")};
+      }
+    @media screen and (max-width: ${theme.rubberSize.laptop}) {
+      font-size: ${rem("12px")};
+      line-height: ${rem("16px")}; 
+      }
 `;

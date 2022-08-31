@@ -35,6 +35,7 @@ const CustomButton = styled.div`
   margin-top: ${rem("24px")};
   width: fit-content;
   cursor: pointer;
+  margin-top: auto;
   
   &:hover{
     background: ${theme.colors.lightBlue};
@@ -42,4 +43,14 @@ const CustomButton = styled.div`
   &:active{
     background: ${theme.colors.heavyBlue};
   }
+    @media screen and (max-width: ${theme.rubberSize.desktop}) {
+      padding: 0 ${rem("20px")};
+      height: ${rem("64px")};
+      font-size: ${rem("15px")};
+    }
+    @media screen and (max-width: ${theme.rubberSize.laptop}) {
+      padding: 0 ${rem("16px")};
+      height: ${rem("48px")};
+      font-size: ${rem("13px")};  
+      }
 `;

@@ -45,5 +45,6 @@ const Content = styled.div`
     @media screen and (max-width: ${theme.rubberSize.tablet}) {
       grid-template-columns: 1fr;
       grid-row-gap: ${rem("8px")};
+      padding: ${rem("32px")} ${rem("16px")} ;
     }
 `;

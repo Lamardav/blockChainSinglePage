@@ -60,6 +60,18 @@ const Title = styled.h1`
   font-weight: 900;
   font-size: ${rem("32px")};
   margin-bottom: ${rem("12px")};
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    font-size: ${rem("28px")};
+    margin-bottom: ${rem("11px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    font-size: ${rem("23.5px")};
+    margin-bottom: ${rem("9px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    font-size: ${rem("21px")};
+    margin-bottom: ${rem("8px")};
+  }
 `;
 
 const Description = styled.p`
@@ -67,39 +79,105 @@ const Description = styled.p`
   font-weight: 500;
   font-size: ${rem("16px")};
   margin-bottom: ${rem("24px")};
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    font-size: ${rem("15px")};
+    margin-bottom: ${rem("22px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    font-size: ${rem("13px")};
+    margin-bottom: ${rem("19px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    font-size: ${rem("12px")};
+    margin-bottom: ${rem("16px")};
+  }
 `;
 
 
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  grid-row-gap: ${rem("6px")};
+  grid-row-gap: ${rem("16px")};
   background: ${theme.colors.white};
   box-shadow: 0px 0px 6px rgb(0 0 0 / 18%);
   transition: all 0.5s ease;
   margin-bottom: ${rem("16px")};
   justify-content: space-between;
-  padding: ${rem("24px")} ${rem("24px")};
-  height: ${rem("130px")};
-  &:nth-last-child(1){
+  padding: ${rem("32px")} ${rem("24px")};
+  height: ${rem("160px")};
+
+  &:nth-last-child(1) {
     margin-bottom: 0;
+  }
+
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    grid-row-gap: ${rem("14px")};
+    margin-bottom: ${rem("16px")};
+    padding: ${rem("30px")} ${rem("22px")};
+    height: ${rem("140px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    grid-row-gap: ${rem("9px")};
+    margin-bottom: ${rem("12px")};
+    padding: ${rem("16px")} ${rem("14px")};
+    height: ${rem("110px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    grid-row-gap: ${rem("8px")};
+    margin-bottom: ${rem("11px")};
+    padding: ${rem("15px")} ${rem("14px")};
+    height: ${rem("105px")};
   }
 `;
 
 const CardHeader = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-column-gap: ${rem("12px")};
+  grid-column-gap: ${rem("16px")};
   font-weight: 600;
   font-size: ${rem("18px")};
+  align-items: center;
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    font-size: ${rem("17px")};
+    grid-column-gap: ${rem("14px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    font-size: ${rem("14px")};
+    grid-column-gap: ${rem("12px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    font-size: ${rem("13px")};
+    grid-column-gap: ${rem("12px")};
+  }
 `;
 
 const CardFooter = styled.div`
   font-size: ${rem("18px")};
   font-weight: 500;
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    font-size: ${rem("17px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    font-size: ${rem("14px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    font-size: ${rem("13px")};
+  }
 `;
 
 const Img = styled.img`
-  width: ${rem("24px")};
-  height: ${rem("24px")};
+  width: ${rem("52px")};
+  height: ${rem("52px")};
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    width: ${rem("48px")};
+    height: ${rem("48px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    width: ${rem("38px")};
+    height: ${rem("38px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    width: ${rem("40px")};
+    height: ${rem("40px")};
+  }
 `;

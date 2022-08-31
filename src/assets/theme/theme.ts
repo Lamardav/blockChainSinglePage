@@ -12,6 +12,9 @@ export const theme = {
         spaceShuttle:"#48423b",
         white:"#ffffff",
         lightBlue: "#4169e0",
-        heavyBlue:"#00004d"
+        heavyBlue:"#00004d",
+        darkgray: "#9d9d9d",
+        mortar:"#525252",
+        darlBlue:"#4177deb8"
     }
 };
