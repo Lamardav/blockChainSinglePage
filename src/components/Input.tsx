@@ -7,13 +7,14 @@ interface IProps {
   iconSrc: string;
   value: string;
   placeholder?: string
+  onChange?:  React.Dispatch<React.SetStateAction<string>>
 }
 
-export const Input = ({ iconSrc, value, ...props }: IProps) => {
+export const Input = ({ iconSrc, value, onChange, ...props }: IProps) => {
     return (
         <InputContainer>
             <Img src={ iconSrc } alt={ "iconInput" }/>
-            <CustomInput { ...props } value={ value }/>
+            <CustomInput { ...props } value={ value } onChange={ e => onChange?.(e.target.value) }/>
         </InputContainer>
     );
 };
@@ -30,6 +31,11 @@ const CustomInput = styled.input`
   border-radius: ${rem("6px")};
   outline: none;
   border: 1px solid ${theme.colors.black};
+  
+  &:hover, &:focus {
+    border: 1px solid ${theme.colors.blue} ;
+  }
+  
   @media screen and (max-width: ${theme.rubberSize.desktop}) {
     padding: ${rem("16px")} ${rem("16px")} ${rem("16px")} ${rem("52px")};
     font-size: ${rem("16px")};
@@ -51,9 +57,9 @@ const Img = styled.img`
     width: ${rem("22px")};
     height: ${rem("22px")};
   }
-    @media screen and (max-width: ${theme.rubberSize.laptop}) {
-      width: ${rem("18px")};
-      height: ${rem("18px")};
-      left: ${rem("12px")};
-    }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    width: ${rem("18px")};
+    height: ${rem("18px")};
+    left: ${rem("12px")};
+  }
 `;

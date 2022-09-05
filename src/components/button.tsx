@@ -5,18 +5,19 @@ import { theme } from "../assets/theme/theme";
 
 interface IProps {
   textBtn: string;
-  clickHanfler?: () => void
+  clickHanfler?: () => void;
+  disabled?: boolean
 }
 
-export const Button = ({ textBtn, clickHanfler }: IProps) => {
+export const Button = ({ textBtn, clickHanfler, disabled }: IProps) => {
     return (
-        <CustomButton onClick={ () => clickHanfler?.() }>
+        <CustomButton disabled={ disabled } onClick={ () => clickHanfler?.() }>
             { textBtn }
         </CustomButton>
     );
 };
 
-const CustomButton = styled.div`
+const CustomButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,21 +37,28 @@ const CustomButton = styled.div`
   width: fit-content;
   cursor: pointer;
   margin-top: auto;
-  
-  &:hover{
+
+ 
+
+  &:hover {
     background: ${theme.colors.lightBlue};
   }
-  &:active{
+
+  &:active {
     background: ${theme.colors.heavyBlue};
   }
-    @media screen and (max-width: ${theme.rubberSize.desktop}) {
-      padding: 0 ${rem("20px")};
-      height: ${rem("64px")};
-      font-size: ${rem("15px")};
-    }
-    @media screen and (max-width: ${theme.rubberSize.laptop}) {
-      padding: 0 ${rem("16px")};
-      height: ${rem("48px")};
-      font-size: ${rem("13px")};  
-      }
+
+  &:disabled {
+    background: #BBC6C8!important;
+  }
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    padding: 0 ${rem("20px")};
+    height: ${rem("64px")};
+    font-size: ${rem("15px")};
+  }
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    padding: 0 ${rem("16px")};
+    height: ${rem("48px")};
+    font-size: ${rem("13px")};
+  }
 `;

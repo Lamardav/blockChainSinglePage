@@ -18,9 +18,9 @@ export const Header = () => {
     return (
         <Container>
             <Drawer onClose={ () => setVisibleDrawer(false) } opened={ visibleDrawer }>
-                { navMenuItem.map((item,i)=> <DrawerItem
+                { navMenuItem.map((item, i) => <DrawerItem
                     key={ i }
-                    onClick={ ()=> {
+                    onClick={ () => {
                         setVisibleDrawer(false);
                         history.push(item.link);
                     } }
@@ -45,10 +45,10 @@ const Container = styled.header`
   width: 100%;
   padding: 0 ${rem("25px")};
   z-index: 99;
-  
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-      padding: ${rem("4px")} 0;
-    }
+
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    padding: ${rem("4px")} 0;
+  }
 `;
 
 const Content = styled.div`
@@ -57,15 +57,16 @@ const Content = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-      justify-content: flex-end;
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    justify-content: flex-end;
 
-    }
+  }
 `;
 
 const ImgLogo = styled.img`
   width: ${rem("182px")};
   height: ${rem("95px")};
+  cursor: pointer;
   @media screen and (max-width: ${theme.rubberSize.desktop}) {
     width: ${rem("132px")};
     height: ${rem("72px")};
@@ -74,11 +75,11 @@ const ImgLogo = styled.img`
     width: ${rem("122px")};
     height: ${rem("65px")};
   }
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-      width: ${rem("90px")};
-      height: ${rem("50px")}; 
-      margin-right: ${rem("32px")};
-      }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    width: ${rem("90px")};
+    height: ${rem("50px")};
+    margin-right: ${rem("32px")};
+  }
 `;
 
 const DrawerItem = styled.div`

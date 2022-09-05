@@ -8,43 +8,55 @@ import { Button } from "../../components/button";
 import { Checkbox } from "../../components/checkbox/checkbox";
 import { DropDowninput } from "../../components/dropDownInput/dropDowninput";
 import { Input } from "../../components/Input";
+import { Modal } from "../../components/modal/modal";
+import { SuccessClick } from "../../components/successClick/successClick";
 import { CtyptoList, PaymentList } from "../../mockData/cryptoList";
 
 export const FormRight = () => {
     const [emailValue, setEmailvalue] = useState("");
-    const [cryptoCount, setCryptoCount] = useState("rtrtrtrtrtrtrtrtr");
+    const [cryptoCount, setCryptoCount] = useState("");
     const [paymentCount, setPaymentCount] = useState("");
     const [checked, setChecked] = useState(false);
     const [cryptoIndex, setCryptoIndex] = useState(0);
     const [paymentIndex, setpaymentIndex] = useState(0);
     const [wallet, setWallet] = useState("");
     const [user, setUser] = useState("");
+    const [visibleModal, setVisiblModal] = useState(false);
 
     const exchange = "Exchange rate 1 BTC = 22146.02445156 USD";
     const exchangeSmallScreen = "Exchange rate 1 BTC = <br/>22146.02445156 USD";
+
+    const isDisabledButton = [emailValue, cryptoCount, paymentCount, wallet, user].every(Boolean) && checked;
+    const clickHandler = () => {
+        setVisiblModal(true);
+    };
 
     return (
         <RightBlock>
             <SecondaryTitle>YOU GIVE</SecondaryTitle>
             <DropDowninput setArrIndex={ (id) => setCryptoIndex(id) } arrIndex={ cryptoIndex } inputName={ "Cruptocurrencies" }
-                dataArr={ CtyptoList } value={ cryptoCount }/>
+                dataArr={ CtyptoList } value={ cryptoCount } onChange={ setCryptoCount }/>
 
-            <Input iconSrc={ email } value={ emailValue } placeholder={ "E-mail" }/>
+            <Input iconSrc={ email } value={ emailValue } placeholder={ "E-mail" } onChange={ setEmailvalue }/>
             <SecondaryTitle>GET</SecondaryTitle>
             <BlueLabel>
                 <PDeskrtop>{ exchange }</PDeskrtop>
-                <PMobile dangerouslySetInnerHTML={ { __html:exchangeSmallScreen } }/>
+                <PMobile dangerouslySetInnerHTML={ { __html: exchangeSmallScreen } }/>
             </BlueLabel>
 
             <DropDowninput setArrIndex={ (id) => setpaymentIndex(id) } arrIndex={ paymentIndex } inputName={ "Stablecoins" }
-                dataArr={ PaymentList } value={ paymentCount }/>
-            <Input iconSrc={ userSvg } value={ user } placeholder={ "Name of the recipient" }/>
-            <Input iconSrc={ `/crypto/${PaymentList[paymentIndex].iconSrc}` } value={ wallet } placeholder={ "Wallet number" }/>
+                dataArr={ PaymentList } value={ paymentCount } onChange={ setPaymentCount }/>
+            <Input iconSrc={ userSvg } onChange={ setUser } value={ user } placeholder={ "Name of the recipient" }/>
+            <Input iconSrc={ `/crypto/${PaymentList[paymentIndex].iconSrc}` } value={ wallet } onChange={ setWallet }
+                placeholder={ "Wallet number" }/>
             <Checkbox
                 label={ "I agree to the processing of personal data and accept the exchange rules" }
                 checked={ checked }
                 onChange={ () => setChecked(!checked) }/>
-            <Button textBtn={ "MAKE ORDER" }/>
+            <Button textBtn={ "MAKE ORDER" } clickHanfler={ clickHandler } disabled={ !isDisabledButton }/>
+            <Modal visible={ visibleModal } clickClose={ () => setVisiblModal(false) }>
+                <SuccessClick onClose={ () => setVisiblModal(false) }/>
+            </Modal>
         </RightBlock>
     );
 };
@@ -66,9 +78,9 @@ const RightBlock = styled.div`
     padding: ${rem("16px")};
     grid-row-gap: ${rem("18px")};
   }
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-       margin-top: ${rem("24px")}; 
-      }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    margin-top: ${rem("24px")};
+  }
 `;
 
 const SecondaryTitle = styled.h6`

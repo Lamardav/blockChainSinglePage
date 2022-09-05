@@ -31,7 +31,7 @@ const Container = styled.div`
   margin-top: ${rem("52px")};
   margin-bottom: ${rem("40")};
 
-  
+
   @media screen and (max-width: ${theme.rubberSize.desktop}) {
     margin-top: ${rem("32px")};
     grid-row-gap: ${rem("24")};
@@ -69,28 +69,101 @@ const PartnersContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-row-gap: ${rem("24px")};
-      grid-column-gap: ${rem("16")};
-      }
+
+  & > :nth-child(2) {
+    width: ${rem("240")};
+    height: ${rem("100")};
+    margin-bottom: ${rem("10px")};
+  }
+
+  & > :nth-child(3) {
+    width: ${rem("240")};
+    height: ${rem("120")};
+    margin-bottom: -${rem("20px")};
+  }
+
+  & > :nth-child(4) {
+    width: ${rem("210")};
+    height: ${rem("90")};
+    margin-bottom: ${rem("0px")};
+  }
+
+  @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    & > :nth-child(1) {
+      width: ${rem("140")};
+      height: ${rem("50")};
+      margin-top: ${rem("5px")};
+    }
+
+    & > :nth-child(2) {
+      width: ${rem("200")};
+      height: ${rem("80")};
+      margin-bottom: ${rem("10px")};
+    }
+
+    & > :nth-child(3) {
+      width: ${rem("140")};
+      height: ${rem("120")};
+      margin-bottom: -${rem("10px")};
+    }
+
+    & > :nth-child(4) {
+      width: ${rem("170")};
+      height: ${rem("80")};
+      margin-bottom: ${rem("0px")};
+    }
+  }
+
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    & > :nth-child(1) {
+      width: ${rem("100")};
+      height: ${rem("30")};
+      margin-bottom: ${rem("10px")};
+    }
+
+    & > :nth-child(2) {
+      width: ${rem("120")};
+      height: ${rem("50")};
+      margin-bottom: ${rem("10px")};
+    }
+
+    & > :nth-child(3) {
+      width: ${rem("120")};
+      height: ${rem("60")};
+      margin-bottom: -${rem("0px")};
+    }
+
+    & > :nth-child(4) {
+      width: ${rem("122")};
+      height: ${rem("50")};
+      margin-bottom: ${rem("3px")};
+    }
+  }
+
+
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: ${rem("24px")};
+    grid-column-gap: ${rem("16")};
+  }
 `;
 
 const Img = styled.img`
   width: ${rem("160")};
   height: ${rem("70")};
   margin: 0 auto;
-    @media screen and (max-width: ${theme.rubberSize.desktop}) {
-      width: ${rem("140")};
-      height: ${rem("55")};   
-      }
-    @media screen and (max-width: ${theme.rubberSize.laptop}) {
-      width: ${rem("110")};
-      height: ${rem("49")};
-    }
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-      width: ${rem("100")};
-      height: ${rem("45")}; 
-      }
+    // @media screen and (max-width: ${theme.rubberSize.desktop}) {
+    //   width: ${rem("140")};
+    //   height: ${rem("55")};
+  // }
+    // @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    //   width: ${rem("110")};
+    //   height: ${rem("49")};
+  // }
+    // @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    //   width: ${rem("100")};
+    //   height: ${rem("45")};
+  // }
 `;

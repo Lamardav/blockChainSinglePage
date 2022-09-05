@@ -140,8 +140,8 @@ const Img = styled.img`
   width: ${rem("40px")};
   height: ${rem("40px")};
   cursor: pointer;
-    @media screen and (max-width: ${theme.rubberSize.tablet}) {
-      width: ${rem("32px")};
-      height: ${rem("32px")};  
-      }
+  @media screen and (max-width: ${theme.rubberSize.tablet}) {
+    width: ${rem("32px")};
+    height: ${rem("32px")};
+  }
 `;

@@ -18,6 +18,8 @@ const Container = styled.div`
   align-items: center;
   grid-column-gap: ${rem("6px")};
   margin-left: ${rem("56px")};
+  cursor: pointer;
+  
   @media screen and (max-width: ${theme.rubberSize.desktop}) {
     font-size: ${rem("13px")};
   }

@@ -12,10 +12,11 @@ interface IProps {
   inputName: string;
   arrIndex: number;
   setArrIndex?: (id: number) => void
+  onChange: React.Dispatch<React.SetStateAction<string>>
 }
 
 
-export const DropDowninput = ({ value, dataArr, inputName, arrIndex, setArrIndex, ...props }: IProps) => {
+export const DropDowninput = ({ value, dataArr, inputName, arrIndex, setArrIndex, onChange, ...props }: IProps) => {
     const [opened, setOpened] = useState(false);
     const handleClick = (id: number) => {
         setOpened(false);
@@ -24,13 +25,13 @@ export const DropDowninput = ({ value, dataArr, inputName, arrIndex, setArrIndex
 
     return (
         <InputContainer opened={ opened } onBlur={ () => setOpened(false) }>
-            <LeftInput onClick={ () => setOpened(!opened) }>
+            <LeftInput onClick={ () => setOpened(!opened) } opened={ opened }>
                 <Img src={ `/crypto/${dataArr[arrIndex].iconSrc}` }/>
                 <Name>{ dataArr[arrIndex].name }</Name>
             </LeftInput>
 
             <RightInput>
-                <CustomInput { ...props } value={ value }/>
+                <CustomInput { ...props } onChange={ e => onChange(e.target.value) } value={ value }/>
                 <SmallLabel>{ dataArr[arrIndex].shortName }</SmallLabel>
             </RightInput>
             <DropDown visible={ opened }>
@@ -71,12 +72,13 @@ const InputContainer = styled.div<{ opened: boolean }>`
     }}
 `;
 
-const LeftInput = styled.div`
+const LeftInput = styled.div<{ opened?: boolean }>`
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
   align-items: center;
   text-align: center;
+  cursor: pointer;
   padding-left: ${rem("52px")};
   background: ${theme.colors.white};
   border-bottom-left-radius: ${rem("6px")};
@@ -85,20 +87,25 @@ const LeftInput = styled.div`
   border-bottom: 1px solid ${theme.colors.black};
   border-top: 1px solid ${theme.colors.black};
   border-left: 1px solid ${theme.colors.black};
-}
 
-@media screen and (max-width: ${theme.rubberSize.laptop}) {
-  padding-left: ${rem("6px")};
-  grid-column-gap: ${rem("12px")};
-  text-align: left;
-}
+  &:hover {
+    border: ${({ opened }) => !opened && `1px solid ${theme.colors.blue}`};
+  }
 
-;
+  @media screen and (max-width: ${theme.rubberSize.laptop}) {
+    padding-left: ${rem("6px")};
+    grid-column-gap: ${rem("12px")};
+    text-align: left;
+  };
 `;
 
 const RightInput = styled.div`
   position: relative;
   width: 100%;
+
+  &:hover > input {
+    border: 1px solid ${theme.colors.blue};
+  }
 `;
 
 const CustomInput = styled.input`
@@ -109,6 +116,11 @@ const CustomInput = styled.input`
   border-top-right-radius: ${rem("6px")};
   outline: none;
   border: 1px solid ${theme.colors.black};
+
+  &:focus {
+    border: 1px solid ${theme.colors.blue};
+  }
+
   @media screen and (max-width: ${theme.rubberSize.desktop}) {
     font-size: ${rem("16px")};
     padding: ${rem("16px")} ${rem("86px")} ${rem("16px")} ${rem("16px")};
